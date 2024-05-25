@@ -1,9 +1,7 @@
 <?php
- session_start();
+session_start();
 unset($_SESSION['id']);
- header('Location:index.php');
+header('Location:index.php');
 
 unset($_SESSION['admin']);
- header('Location:index.php');
- 
-?>
+header('Location:index.php');
