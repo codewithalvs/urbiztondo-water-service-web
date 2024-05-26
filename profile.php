@@ -4,6 +4,28 @@ if (!isset($_SESSION['id'])) {
 }
 ?>
 
+<?php
+
+$url = 'http://127.0.0.1:8000/api/admin/customers/' . $_SESSION['id'];
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo 'cURL error: ' . curl_error($ch);
+} else {
+    $data = json_decode($response, true)['data'];
+}
+
+curl_close($ch);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +43,7 @@ if (!isset($_SESSION['id'])) {
             <img src="img/logo1.jpg" alt="Kunle Coker">
         </div>
         <div class="profile-info">
-            <h1>ALVIC REYES</h1>
+            <h1><?php echo $data['customer']['name']; ?></h1>
 
         </div>
         <div class="profile-actions">
