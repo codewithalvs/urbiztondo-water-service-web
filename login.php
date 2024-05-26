@@ -23,7 +23,7 @@ if ($response === false) {
 	if (json_decode($response, true)['data']['type'] == 'USER') {
 		$_SESSION['id'] = json_decode($response, true)['data']['id'];
 		echo '<script>alert("Welcome, CUSTOMER!")</script>';
-		echo '<script>windows: location="modal.php"</script>';
+		echo '<script>windows: location="profile.php"</script>';
 	} else if (json_decode($response, true)['data']['type'] == 'ADMIN') {
 		$_SESSION['id'] = json_decode($response, true)['data']['id'];
 		echo '<script>alert("Welcome, ADMIN!")</script>';
