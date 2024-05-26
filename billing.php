@@ -202,8 +202,8 @@ if (!isset($_SESSION['id'])) {
                       echo "<td>" . $phoneNumber . "</td>";
                       echo "<td>" . $address . "</td>";
                       echo "<td>" . $meterNumber . "</td>";
-                      echo "<td><a rel='facebox' href='paybilling.php?id=" . $userId . "'><span class=\" btn btn-success \"> Create Bills </span> </a>| ";
-                      echo "<a rel='facebox' href='viewbilling.php?id=" . $userId . "'><span class=\"btn btn-danger \">View Bill Record</span></td>";
+                      echo "<td><a rel='facebox' href='paybill.php?id=" . $userId . "'><span class=\" btn btn-success \"> Create Bills </span> </a>| ";
+                      echo "<a rel='facebox' href='viewbill.php?id=" . $userId . "'><span class=\"btn btn-danger \">View Bill Record</span></td>";
                       echo "</tr>";
                     }
 

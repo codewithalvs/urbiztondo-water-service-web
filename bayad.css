@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-table {
+    width: 400px;
+    border: 2px solid #ccc;
+    border-spacing: 0;
+    background-color: #fff; /* White background color for the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.form-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-table tr:last-child td {
+    border-bottom: none;
+}
+
+.form-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light grey background for alternate rows */
+}
+
+.label {
+    width: 150px;
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+    padding-right: 10px;
+}
+
+.unit {
+    width: 50px;
+    text-align: left;
+    color: #555;
+    padding-left: 10px;
+}
+
+input[type="text"],
+select {
+    width: calc(100% - 20px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Light grey background for input fields */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.submit-cell {
+    text-align: center;
+}

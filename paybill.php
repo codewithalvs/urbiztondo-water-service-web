@@ -53,7 +53,7 @@ if ($http_code == 200) {
 <h1>Name: <?php echo $data['customer']['name'] . '&nbsp;' . $data['customer']['meter_number']; ?></h1>
 <p><?php $date = date('y/m/d ');
     echo $date; ?></p>
-<form method="post" action="addbilling.php">
+<form method="post" action="addbill.php">
   <table width="400" border="2">
     <table height="200">
       <tr>

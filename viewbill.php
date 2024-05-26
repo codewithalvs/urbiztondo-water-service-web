@@ -47,7 +47,7 @@ foreach ($data as $key => $value) {
     echo "<td>" . $value['price'] . "</td>";
     echo "<td>" . $value['date'] . "</td>";
     echo "<td><a rel='facebox' href='viewpayment.php?id=" . $value['id'] . "&user_id=" . $value['user_id'] . "'><span class=\"glyphicon glyphicon-eye-open\">View </a>| ";
-    echo "<a rel='facebox' href='delbilling.php?id=" . $value['id'] . "'>Del</td>";
+    echo "<a rel='facebox' href='delbill.php?id=" . $value['id'] . "'>Del</td>";
     echo "</tr>";
 }
 
