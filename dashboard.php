@@ -167,6 +167,22 @@ curl_close($ch);
                         </a>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h5 style="font-size:24px; font-weight:bold;">Payments</h5>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <h1><?php echo $data['payments']; ?>
+                            </h1>
+                        </div>
+                        <a href="paymentlist.php">
+                            <div class="panel-footer"><span class="alert-link glyphicon glyphicon-circle-arrow-right"></span>View</div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

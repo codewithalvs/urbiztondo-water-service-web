@@ -28,8 +28,8 @@ if (!isset($_SESSION['id'])) {
                 <td class="label">Payment Method:</td>
                 <td colspan="3">
                     <select name="payment_method">
-                        <option value="cash">CASH</option>
-                        <option value="credit_card">G-CASH</option>
+                        <option value="CASH">CASH</option>
+                        <option value="G-CASH">G-CASH</option>
 
                     </select>
                 </td>

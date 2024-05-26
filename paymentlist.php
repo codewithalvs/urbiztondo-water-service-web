@@ -122,9 +122,9 @@ if (!isset($_SESSION['id'])) {
       <h2>URBIZTONDO WATER SERVICE</h2>
       <ul class="nav nav-pills">
         <li><a href="dashboard.php" class="white-default"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-        <li ><a href="billing.php"><span class="glyphicon  white-default"></span>&nbsp;₱ Billing</a></li>
+        <li><a href="billing.php"><span class="glyphicon  white-default"></span>&nbsp;₱ Billing</a></li>
         <li><a href="clients.php" class="white-default"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Clients</a></li>
-        <li class="btn btn-default btn-xs"><a href="paymentlist" class="white-default"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Payment List</a></li>
+        <li class="btn btn-default btn-xs"><a href="paymentlist.php" class="white-default"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Payment List</a></li>
       </ul>
       <div class="logout-container" style="color:#F00; font-size:12px;">
         <a href="logout.php"><span class="btn btn-danger glyphicon glyphicon-log-out">&nbsp;Logout</span></a>
@@ -142,7 +142,7 @@ if (!isset($_SESSION['id'])) {
                 <div class="panel panel-info">
                   <div class="panel-heading">
                     <div class="panel-title bg-green 100">
-                      <h5>Billing Sequence</h5>
+                      <h5>Payment Sequence</h5>
                     </div>
                   </div>
                   <div class="panel-body">
@@ -151,7 +151,7 @@ if (!isset($_SESSION['id'])) {
                     // include 'db.php';
                     // $result = mysqli_query($conn,"SELECT * FROM owners");
 
-                    $url = 'http://127.0.0.1:8000/api/admin/customers';
+                    $url = 'http://127.0.0.1:8000/api/admin/payments';
 
                     // Initialize a cURL session
                     $ch = curl_init();
@@ -179,25 +179,25 @@ if (!isset($_SESSION['id'])) {
                     echo "<table class=\"table\" bgcolor='#fff'>
 <tr>
 <th>Name</th>
-<th>Email</th>
-<th>Phone Number</th>
-<th>Address</th>
+<th>Payment Method</th>
+<th>Amount</th>
+<th>Date</th>
 </tr>";
 
-foreach ($data as $user) {
-  $userId = $user['id'];
-  $customer = $user['customer'];
+                    foreach ($data as $payment) {
+                      $id = $payment['id'];
+                      $payment_method = $payment['payment_method'];
+                      $amount = $payment['amount'];
+                      $date = $payment['date'];
+                      $customer = $payment['customer'];
 
-  $customerId = isset($customer['id']) ? $customer['id'] : null;
-  $name = isset($customer['name']) ? $customer['name'] : null;
-  $email = isset($customer['email']) ? $customer['email'] : null;
-  $phoneNumber = isset($customer['phone_number']) ? $customer['phone_number'] : null;
-  $address = isset($customer['address']) ? $customer['address'] : null;
+                      $customerId = isset($customer['id']) ? $customer['id'] : null;
+                      $name = isset($customer['name']) ? $customer['name'] : null;
 
-  echo "<tr>";
-  echo "<td>" . $name . "</td>";
-  echo "<td>" . $email . "</td>";
-  echo "<td>" . $phoneNumber . "</td>";
-  echo "<td>" . $address . "</td>";
-  echo "</tr>";
-}
+                      echo "<tr>";
+                      echo "<td>" . $name . "</td>";
+                      echo "<td>" . $payment_method . "</td>";
+                      echo "<td>" . $amount . "</td>";
+                      echo "<td>" . $date . "</td>";
+                      echo "</tr>";
+                    }
