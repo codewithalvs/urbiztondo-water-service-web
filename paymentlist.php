@@ -1,6 +1,6 @@
 <?php session_start();
 if (!isset($_SESSION['id'])) {
-  echo '<script>windows: location="index.php"</script>';
+  echo '<script>window.location="index.php"</script>';
 }
 ?>
 
@@ -122,9 +122,9 @@ if (!isset($_SESSION['id'])) {
       <h2>URBIZTONDO WATER SERVICE</h2>
       <ul class="nav nav-pills">
         <li><a href="dashboard.php" class="white-default"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-        <li class="btn btn-default btn-xs"><a href="billing.php"><span class="glyphicon  white-default"></span>&nbsp;₱ Billing</a></li>
+        <li ><a href="billing.php"><span class="glyphicon  white-default"></span>&nbsp;₱ Billing</a></li>
         <li><a href="clients.php" class="white-default"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Clients</a></li>
-        <li><a href="paymentlist.php" class="white-default"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Payment List</a></li>
+        <li class="btn btn-default btn-xs"><a href="paymentlist" class="white-default"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Payment List</a></li>
       </ul>
       <div class="logout-container" style="color:#F00; font-size:12px;">
         <a href="logout.php"><span class="btn btn-danger glyphicon glyphicon-log-out">&nbsp;Logout</span></a>
@@ -182,117 +182,22 @@ if (!isset($_SESSION['id'])) {
 <th>Email</th>
 <th>Phone Number</th>
 <th>Address</th>
-<th>Meter Number</th>
-<th>Action</th>
 </tr>";
 
-                    foreach ($data as $user) {
-                      $userId = $user['id'];
-                      $customer = $user['customer'];
+foreach ($data as $user) {
+  $userId = $user['id'];
+  $customer = $user['customer'];
 
-                      $customerId = isset($customer['id']) ? $customer['id'] : null;
-                      $name = isset($customer['name']) ? $customer['name'] : null;
-                      $email = isset($customer['email']) ? $customer['email'] : null;
-                      $phoneNumber = isset($customer['phone_number']) ? $customer['phone_number'] : null;
-                      $address = isset($customer['address']) ? $customer['address'] : null;
-                      $meterNumber = isset($customer['meter_number']) ? $customer['meter_number'] : null;
+  $customerId = isset($customer['id']) ? $customer['id'] : null;
+  $name = isset($customer['name']) ? $customer['name'] : null;
+  $email = isset($customer['email']) ? $customer['email'] : null;
+  $phoneNumber = isset($customer['phone_number']) ? $customer['phone_number'] : null;
+  $address = isset($customer['address']) ? $customer['address'] : null;
 
-                      echo "<tr>";
-                      echo "<td>" . $name . "</td>";
-                      echo "<td>" . $email . "</td>";
-                      echo "<td>" . $phoneNumber . "</td>";
-                      echo "<td>" . $address . "</td>";
-                      echo "<td>" . $meterNumber . "</td>";
-                      echo "<td><a rel='facebox' href='paybill.php?id=" . $userId . "'><span class=\" btn btn-success \"> Create Bills </span> </a>| ";
-                      echo "<a rel='facebox' href='viewbill.php?id=" . $userId . "'><span class=\"btn btn-danger \">View Bill Record</span></td>";
-                      echo "</tr>";
-                    }
-
-                    // while($row = mysqli_fetch_array($result))
-                    //   {
-
-                    //   }
-                    echo "</table>";
-
-                    ?>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-----  ######################################### -->
-
-
-        </div>
-      </div>
-    </div>
-    <script src="js/jquery.js"></script>
-    <script type="text/javascript">
-      $(function() {
-        $(".delbutton").click(function() {
-          var element = $(this);
-          var del_id = element.attr("id");
-          var info = 'id=' + del_id;
-          if (confirm("Sure you want to delete this update? There is NO undo!")) {
-            $.ajax({
-              type: "GET",
-              url: "delete.php",
-              data: info,
-              success: function() {}
-            });
-            $(this).parents(".record").animate({
-                backgroundColor: "#fbc7c7"
-              }, "fast")
-              .animate({
-                opacity: "hide"
-              }, "slow");
-          }
-          return false;
-        });
-      });
-    </script>
-</body>
-
-
-</html>
-<script src="js/jquery.js"></script>
-<script type="text/javascript">
-  $(function() {
-
-
-    $(".delbutton").click(function() {
-
-      //Save the link in a variable called element
-      var element = $(this);
-
-      //Find the id of the link that was clicked
-      var del_id = element.attr("id");
-
-      //Built a url to send
-      var info = 'id=' + del_id;
-      if (confirm("Sure you want to delete this update? There is NO undo!")) {
-
-        $.ajax({
-          type: "GET",
-          url: "delete.php",
-          data: info,
-          success: function() {
-
-          }
-        });
-        $(this).parents(".record").animate({
-            backgroundColor: "#fbc7c7"
-          }, "fast")
-          .animate({
-            opacity: "hide"
-          }, "slow");
-
-      }
-
-      return false;
-
-    });
-
-  });
-</script>
+  echo "<tr>";
+  echo "<td>" . $name . "</td>";
+  echo "<td>" . $email . "</td>";
+  echo "<td>" . $phoneNumber . "</td>";
+  echo "<td>" . $address . "</td>";
+  echo "</tr>";
+}

@@ -126,6 +126,7 @@ if (!isset($_SESSION['id'])) {
         <li><a href="dashboard.php" class="white-default"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
         <li><a href="billing.php" class="white-default"><span class="glyphicon  white-default"></span>₱ Billing</a></li>
         <li class="btn btn-default btn-xs"><a href="clients.php"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Clients</a></li>
+        <li><a href="paymentlist.php" class="white-default"><span class="glyphicon glyphicon-list white-default"></span>&nbsp;Payment List</a></li>
       </ul>
       <div class="logout-container" style="color:#F00; font-size:12px;">
         <a href="logout.php"><span class="btn btn-danger glyphicon glyphicon-log-out">&nbsp;Logout</span></a>
